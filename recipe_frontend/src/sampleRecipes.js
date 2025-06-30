@@ -1,10 +1,14 @@
+import berryBowlImg from './assets/images/Berry_Smoothie_Bowl.jpg';
+import pizzaImg from './assets/images/Vegetarian_Pizza.jpg';
+import chickenStirFryImg from './assets/images/Chicken_Stir_Fry.jpg';
+
 const sampleRecipes = [
   {
     id: 'berry-bowl',
     title: 'Berry Smoothie Bowl',
     description: 'A vibrant, healthy breakfast with fresh fruit and nuts.',
     badges: ['Vegetarian', 'Gluten-Free', 'Healthy'],
-    image: '/assets/images/Berry_Smoothie_Bowl.jpg',
+    image: berryBowlImg,
     alt: 'Berry Smoothie Bowl'
   },
   {
@@ -12,7 +16,7 @@ const sampleRecipes = [
     title: 'Vegetarian Pizza',
     description: 'A delicious golden vegetarian pizza for all occasions.',
     badges: ['Vegetarian', 'Family Favorite', 'Pizza'],
-    image: '/assets/images/Vegetarian_Pizza.jpg',
+    image: pizzaImg,
     alt: 'Vegetarian Pizza'
   },
   {
@@ -20,7 +24,7 @@ const sampleRecipes = [
     title: 'Chicken Stir Fry',
     description: 'Bright and fresh high-protein chicken stir fry in minutes.',
     badges: ['High Protein', 'Asian', 'Quick'],
-    image: '/assets/images/Chicken_Stir_Fry.jpg',
+    image: chickenStirFryImg,
     alt: 'Chicken Stir Fry'
   }
 ];
