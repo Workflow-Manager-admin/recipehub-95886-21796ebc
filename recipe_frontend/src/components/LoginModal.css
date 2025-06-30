@@ -1,0 +1,87 @@
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(30, 24, 44, 0.20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in .21s;
+}
+@keyframes fade-in {
+  from { opacity:0; }
+  to { opacity: 1; }
+}
+.modal {
+  background: var(--card-bg, #fff);
+  border-radius: var(--card-radius, 18px);
+  box-shadow: 0 4px 18px rgba(60,60,60,0.17);
+  padding: 2rem 1.5rem 1.3rem 1.5rem;
+  min-width: 300px;
+  min-height: 100px;
+  max-width: 350px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-close {
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  color: #aaa;
+  cursor: pointer;
+}
+.login-modal h2 {
+  margin-bottom: 1.2rem;
+  color: var(--primary-text, #222);
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.8rem;
+}
+.auth-form input {
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color, #ececec);
+}
+.auth-error {
+  color: var(--badge-red, #EF474A);
+  font-size: 0.97rem;
+  margin-bottom: 2px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.auth-btn {
+  margin-top: 0.3rem;
+  font-size: 1.05rem;
+  background: var(--accent, #673ab7);
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+  padding: 0.65rem 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(80,80,90,0.06);
+  transition: background 0.14s;
+}
+.auth-btn:hover {
+  background: var(--primary, #4CAF50);
+}
+.modal-alt {
+  font-size: 0.92rem;
+  color: #888;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .modal-bg { align-items: flex-end;}
+  .modal { min-width: 100vw; max-width: 97vw; border-radius: 0;}
+}

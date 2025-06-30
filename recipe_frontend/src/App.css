@@ -1,13 +1,23 @@
 /* CSS Variables for Theme Management */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  /* Theme variables for modern minimal recipe app */
+  --bg-primary: #fafafa;
+  --bg-secondary: #f3f2fd;
+  --primary: #4CAF50;
+  --secondary: #FF9800;
+  --accent: #673AB7;
+  --card-radius: 18px;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 8px rgba(60,60,60,0.10);
+  --primary-text: #222;
+  --secondary-text: #555;
+  --badge-purple: #8141A4;
+  --badge-green: #7BC47F;
+  --badge-red: #EF474A;
+  --badge-gold: #F6C244;
+  --border-color: #ECECEC;
+  --button-bg: #673AB7;
+  --button-text: #fff;
 }
 
 [data-theme="dark"] {

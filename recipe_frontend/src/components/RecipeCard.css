@@ -1,0 +1,117 @@
+.recipe-card {
+  background: var(--card-bg, #fff);
+  border-radius: var(--card-radius, 18px);
+  box-shadow: var(--card-shadow, 0 2px 8px rgba(60,60,60,0.10));
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 320px;
+  min-width: 200px;
+  width: 100%;
+  transition: box-shadow 0.15s, transform 0.10s;
+  border: 1px solid var(--border-color, #ececec);
+}
+
+.recipe-card:hover {
+  box-shadow: 0 4px 18px rgba(60,60,60,0.13);
+  transform: translateY(-2px) scale(1.015);
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 11px;
+  object-fit: cover;
+  margin-bottom: 4px;
+  background: #fafafa;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-text, #222);
+  margin-bottom: 3px;
+}
+.card-desc {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--secondary-text, #555);
+  margin-bottom: 6px;
+}
+
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 7px;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 3px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  background: #ececec;
+  color: #555;
+}
+
+.badge-vegetarian { background: var(--badge-green, #7BC47F); color: #fff; }
+.badge-glutenfree { background: var(--badge-purple, #8141A4); color: #fff; }
+.badge-healthy { background: var(--badge-gold,#F6C244); color: #fff; }
+.badge-highprotein { background: var(--badge-red, #EF474A); color: #fff; }
+.badge-asian { background: var(--badge-purple,#8141A4); color: #fff;}
+.badge-familyfavorite { background: var(--badge-gold,#F6C244); color: #fff;}
+.badge-quick { background: #3ea2ff; color: #fff;}
+.badge-pizza { background: #f07854; color: #fff;}
+.badge-default { background: #ececec; color: #555;}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.fav-btn, .edit-btn {
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 2px solid var(--accent,#673ab7);
+  color: var(--accent,#673ab7);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .16s, color .16s;
+  margin-right: 2px;
+  outline: none;
+}
+
+.fav-btn.active, .fav-btn:hover {
+  background: var(--accent, #673ab7);
+  color: #fff;
+}
+
+.edit-btn {
+  color: var(--primary, #4caf50);
+  border: 2px solid var(--primary, #4caf50);
+  background: none;
+}
+.edit-btn:hover {
+  background: var(--primary, #4caf50);
+  color: #fff;
+}
+
+@media (max-width: 500px) {
+  .recipe-card {
+    min-width: 120px;
+    padding: 8px;
+  }
+  .card-title { font-size: 1rem;}
+  .card-desc { font-size: 0.85rem;}
+}

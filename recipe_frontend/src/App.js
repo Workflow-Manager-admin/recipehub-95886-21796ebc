@@ -1,48 +1,70 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import { AuthProvider } from './auth/AuthContext';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import RecipeGrid from './components/RecipeGrid';
+import LoginModal from './components/LoginModal';
+import RecipeModal from './components/RecipeModal';
+
 import './App.css';
 
 // PUBLIC_INTERFACE
 function App() {
-  const [theme, setTheme] = useState('light');
+  // Handles modal states and mobile sidebar for basic app structure
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRecipeModal, setShowRecipeModal] = useState(false);
+  const [editRecipe, setEditRecipe] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Effect to apply theme to document element
+  // Set light theme and CSS vars for custom card design
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.body.style.background = 'var(--bg-primary)';
+  }, []);
 
   // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
+  const openEditRecipe = (recipeData) => {
+    setEditRecipe(recipeData);
+    setShowRecipeModal(true);
+  }
+
+  // PUBLIC_INTERFACE
+  const openLogin = () => setShowLogin(true);
+
+  // PUBLIC_INTERFACE
+  const closeModals = () => {
+    setShowLogin(false);
+    setShowRecipeModal(false);
+    setEditRecipe(null);
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <div className="main-app-layout">
+        <Header 
+          onAddRecipe={() => setShowRecipeModal(true)} 
+          onShowLogin={openLogin} 
+          onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+        />
+        <div className="main-content-outer">
+          <Sidebar 
+            open={sidebarOpen}
+            onClose={() => setSidebarOpen(false)}
+          />
+          <main className="main-content">
+            <RecipeGrid 
+              onEditRecipe={openEditRecipe}
+            />
+          </main>
+        </div>
+        <LoginModal open={showLogin} onClose={closeModals} />
+        <RecipeModal 
+          open={showRecipeModal}
+          onClose={closeModals}
+          editRecipe={editRecipe}
+        />
+      </div>
+    </AuthProvider>
   );
 }
 
