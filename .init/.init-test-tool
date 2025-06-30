@@ -1,0 +1,4 @@
+{
+    "command": "npm run test",
+    "working_directory": "/home/kavia/workspace/code-generation/recipehub-95886-21796ebc/recipe_frontend"
+}
